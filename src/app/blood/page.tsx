@@ -7,11 +7,12 @@ import BedSearchForm from "@/components/BedsSearchForm";
 import BedsHeader from "@/components/BedsHeader";
 import BedsPage from "@/components/BedsPage";
 import BloodHeader from "@/components/BloodHeader";
+import BloodPage from "@/components/BloodPage";
 export default function Home() {
     return (
         <main className="flex  flex-col justify-center items-center ">
             <BloodHeader/>
-            <BedsPage/>
+            <BloodPage/>
         </main>
     );
 }

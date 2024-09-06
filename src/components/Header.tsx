@@ -55,6 +55,13 @@ export function Header() {
             <div className="navigationMenu pt-4">
                 <NavigationMenu>
                     <NavigationMenuList>
+                    <NavigationMenuItem>
+                            <Link href="/" legacyBehavior passHref>
+                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                    Home
+                                </NavigationMenuLink>
+                            </Link>
+                        </NavigationMenuItem>
                         <NavigationMenuItem>
                             <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
                             <NavigationMenuContent>

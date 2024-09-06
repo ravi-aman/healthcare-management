@@ -2,10 +2,11 @@
 import React from "react";
 import { Boxes } from "@/components/ui/background-boxes";
 import { cn } from "@/lib/utils";
+import TeamMember from "./teamMember";
 
 export function Footer() {
     return (
-        <footer className="relative w-full bg-slate-900 text-gray-200">
+        <footer className="relative w-full bg-slate-900 text-gray-200 z-20">
             <div className="h-96 relative w-full overflow-hidden flex flex-col items-center justify-center rounded-lg">
                 <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
@@ -16,7 +17,10 @@ export function Footer() {
                 <div className="relative z-30 w-full max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between">
                     {/* Navigation and Social Media Links */}
                     <div className="flex flex-col md:flex-row md:space-x-8 mb-6 md:mb-0">
+
                         <div className="flex flex-col space-y-4">
+                            <TeamMember />
+
                             <h2 className="text-xl font-semibold text-white mb-4">Navigation</h2>
                             <nav className="flex flex-col space-y-2">
                                 <a href="#about" className="hover:text-white">About Us</a>
