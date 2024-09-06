@@ -27,7 +27,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          <div className="flex min-h-screen  bg-gray-400">
+          <div className="flex min-h-screen bg-white">
             <div >
               <Header />
               {children}

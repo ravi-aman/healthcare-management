@@ -6,7 +6,6 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 export function Testimonial() {
     return (
         <div className="flex flex-col  justify-center item center">
-            <h1 className="text-center py-20 text-6xl font-semibold font-bold-800 text-gray-800 dark:text-gray-200 mb-6 ">Testimonial</h1>
             <div className="h-[rem] rounded-md flex flex-col antialiased  dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
                 <InfiniteMovingCards
                     items={testimonials}
