@@ -18,43 +18,33 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Logo from "@/components/Logo"
-const components: { title: string; href: string; description: string }[] = [
+const components = [
     {
-        title: "Alert Dialog",
-        href: "/docs/primitives/alert-dialog",
-        description:
-            "A modal dialog that interrupts the user with important content and expects a response.",
+        title: "Check Blood",
+        href: "/services/check-blood",
+        description: "Quickly locate available blood supplies and manage your inventory with ease.",
     },
     {
-        title: "Hover Card",
-        href: "/docs/primitives/hover-card",
-        description:
-            "For sighted users to preview content available behind a link.",
+        title: "Check Oxygen Cylinders",
+        href: "/services/check-oxygen",
+        description: "Find and track available oxygen cylinders to ensure timely access.",
     },
     {
-        title: "Progress",
-        href: "/docs/primitives/progress",
-        description:
-            "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+        title: "Book Appointment",
+        href: "/services/book-appointment",
+        description: "Schedule appointments at hospitals or clinics effortlessly.",
     },
     {
-        title: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
-        description: "Visually or semantically separates content.",
+        title: "Check Medicine",
+        href: "/services/check-medicine",
+        description: "Search for and manage medicine availability and inventory efficiently.",
     },
     {
-        title: "Tabs",
-        href: "/docs/primitives/tabs",
-        description:
-            "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+        title: "Check Beds",
+        href: "/services/check-beds",
+        description: "Find available hospital beds in your area with real-time updates.",
     },
-    {
-        title: "Tooltip",
-        href: "/docs/primitives/tooltip",
-        description:
-            "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
-]
+];
 
 export function Header() {
     return (
@@ -77,29 +67,26 @@ export function Header() {
                                             >
                                                 <Icons.logo className="h-6 w-6" />
                                                 <div className="mb-2 mt-4 text-lg font-medium">
-                                                    shadcn/ui
+                                                    Rk
                                                 </div>
                                                 <p className="text-sm leading-tight text-muted-foreground">
-                                                    Beautifully designed components built with Radix UI and
-                                                    Tailwind CSS.
+                                                    Comprehensive healthcare management platform offering bed, blood, oxygen, and medicine tracking, along with appointment scheduling and hospital system management
                                                 </p>
                                             </a>
                                         </NavigationMenuLink>
                                     </li>
-                                    <ListItem href="/docs" title="Introduction">
-                                        Re-usable components built using Radix UI and Tailwind CSS.
+                                    <ListItem href="/pages/hospital" title="Hospital">
+                                        Manage hospital systems, register facilities, and track patient services
                                     </ListItem>
-                                    <ListItem href="/docs/installation" title="Installation">
-                                        How to install dependencies and structure your app.
-                                    </ListItem>
-                                    <ListItem href="/docs/primitives/typography" title="Typography">
-                                        Styles for headings, paragraphs, lists...etc
-                                    </ListItem>
+                                    <ListItem href="/pages/doctor" title="Doctor">
+                                        Find doctors, manage appointments, and access medical profiles.                                    </ListItem>
+                                    <ListItem href="/pages/medicine-distributor" title="Medicine Distributor">
+                                        Oversee medicine distribution, manage stock, and streamline supply chains.                                    </ListItem>
                                 </ul>
                             </NavigationMenuContent>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
                             <NavigationMenuContent>
                                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                                     {components.map((component) => (
@@ -117,7 +104,7 @@ export function Header() {
                         <NavigationMenuItem>
                             <Link href="/docs" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                    Documentation
+                                    Contact us
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
