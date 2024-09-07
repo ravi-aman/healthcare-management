@@ -11,7 +11,7 @@ export function Features() {
     return (
         <div className="w-full h-full py-20 pb-0">
             <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-                Get to know your iSad platform.
+                Get to know your hospital management platform.
             </h2>
             <Carousel items={cards} />
         </div>
@@ -28,16 +28,13 @@ const DummyContent = () => {
                 >
                     <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
                         <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                            The first rule of Apple club is that you boast about Apple club.
+                            The first rule of using our platform is exploring all its capabilities.
                         </span>{" "}
-                        Keep a journal, quickly jot down a grocery list, and take amazing
-                        class notes. Want to convert those notes to text? No problem.
-                        Langotiya jeetu ka mara hua yaar is ready to capture every
-                        thought.
+                        This feature will streamline hospital management processes and enhance operational efficiency.
                     </p>
                     <Image
                         src="/img1.webp"
-                        alt="Macbook mockup from Aceternity UI"
+                        alt="Feature mockup"
                         height={500}
                         width={500}
                         className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
@@ -50,39 +47,39 @@ const DummyContent = () => {
 
 const data = [
     {
-        category: "Artificial Intelligence",
-        title: "You can do more with AI.",
+        category: "Hospital Management",
+        title: "Manage Beds Effectively",
         src: "/media/beds.jpg",
         content: <DummyContent />,
     },
     {
-        category: "Productivity",
-        title: "Enhance your productivity.",
+        category: "Hospital Management",
+        title: "Blood Availability Checking",
         src: "/media/doctor.jpg",
         content: <DummyContent />,
     },
     {
-        category: "Product",
-        title: "Launching the new Apple Vision Pro.",
-        src: "/img1.webp",
+        category: "Hospital Management",
+        title: "Oxygen Cylinder Availability",
+        src: "/media/beds2.jpg",
         content: <DummyContent />,
     },
     {
-        category: "Product",
-        title: "Maps for your iPhone 15 Pro Max.",
+        category: "Appointment",
+        title: "Appointment Scheduling",
         src: "/media/imgh1.jpg",
         content: <DummyContent />,
     },
     {
-        category: "iOS",
-        title: "Photography just got better.",
-        src: "/img1.webp",
+        category: "Pharmacy",
+        title: "Order Medicines with Ease",
+        src: "/media/beds.jpg",
         content: <DummyContent />,
     },
     {
-        category: "Hiring",
-        title: "Hiring for a Staff Software Engineer",
-        src: "/img1.webp",
+        category: "Health Data",
+        title: "Earn Tokens for Sharing Health Data",
+        src: "/media/doctor.jpg",
         content: <DummyContent />,
     },
 ];

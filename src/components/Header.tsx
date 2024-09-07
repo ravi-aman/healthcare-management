@@ -44,6 +44,26 @@ const components = [
         href: "/services/check-beds",
         description: "Find available hospital beds in your area with real-time updates.",
     },
+    {
+        title: "share your data",
+        href: "/services/check-beds",
+        description: "Share your data for research purposes and get exiting rewards or token.",
+    },
+    {
+        title: "Ask for Donation",
+        href: "/services/check-beds",
+        description: "get donation for your need ",
+    },
+    {
+        title: "Test availability",
+        href: "/services/check-beds",
+        description: "Find available Test in your area with real-time updates.",
+    },
+    {
+        title: "avilibility of treatments",
+        href: "/services/check-beds",
+        description: "Find available Test in your area with real-time updates.",
+    },
 ];
 
 export function Header() {
