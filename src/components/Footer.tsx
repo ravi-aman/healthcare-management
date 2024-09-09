@@ -10,12 +10,9 @@ export function Footer() {
             <div className="h-96 relative w-full overflow-hidden flex flex-col items-center justify-center rounded-lg">
                 <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
-                {/* Background boxes */}
                 <Boxes />
 
-                {/* Footer content */}
                 <div className="relative z-30 w-full max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between">
-                    {/* Navigation and Social Media Links */}
                     <div>
                         <TeamMember/>
                         <div className="flex flex-col md:flex-row md:space-x-8 mb-6 md:mb-0">

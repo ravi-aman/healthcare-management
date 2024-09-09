@@ -1,8 +1,7 @@
-"use client"
+'use client'
 
 import * as React from "react"
 import Link from "next/link"
-
 
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
@@ -18,64 +17,70 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Logo from "@/components/Logo"
+
 const components = [
     {
         title: "Check Blood",
-        href: "/services/check-blood",
+        href: "/blood",
         description: "Quickly locate available blood supplies and manage your inventory with ease.",
     },
     {
         title: "Check Oxygen Cylinders",
-        href: "/services/check-oxygen",
+        href: "oxygen",
         description: "Find and track available oxygen cylinders to ensure timely access.",
     },
     {
         title: "Book Appointment",
-        href: "/services/book-appointment",
+        href: "/appointment",
         description: "Schedule appointments at hospitals or clinics effortlessly.",
     },
     {
         title: "Check Medicine",
-        href: "/services/check-medicine",
+        href: "/medicine",
         description: "Search for and manage medicine availability and inventory efficiently.",
     },
     {
         title: "Check Beds",
-        href: "/services/check-beds",
+        href: "/beds",
         description: "Find available hospital beds in your area with real-time updates.",
     },
     {
-        title: "share your data",
-        href: "/services/check-beds",
-        description: "Share your data for research purposes and get exiting rewards or token.",
+        title: "Share Your Data",
+        href: "sharedata",
+        description: "Share your data for research purposes and get exciting rewards or tokens.",
     },
     {
         title: "Ask for Donation",
-        href: "/services/check-beds",
-        description: "get donation for your need ",
+        href: "/askdonation",
+        description: "Get donations for your needs.",
     },
     {
-        title: "Test availability",
-        href: "/services/check-beds",
-        description: "Find available Test in your area with real-time updates.",
+        title: "Test Availability",
+        href: "/testavailability",
+        description: "Find available tests in your area with real-time updates.",
     },
     {
-        title: "avilibility of treatments",
-        href: "/services/check-beds",
-        description: "Find available Test in your area with real-time updates.",
+        title: "Availability of Treatments",
+        href: "/availabilitytreatments",
+        description: "Find available treatments in your area with real-time updates.",
+    },
+    {
+        title: " Find insurance",
+        href: "/availabilitytreatments",
+        description: "Find appropriate insurance for you .",
     },
 ];
 
 export function Header() {
     return (
-        <div className="flex flex-row justify-between w-screen bg-black relative top-0" >
+        <div className="flex flex-row justify-between w-screen bg-black relative top-0">
             <div className="logo">
                 <Logo />
             </div>
             <div className="navigationMenu pt-4">
                 <NavigationMenu>
                     <NavigationMenuList>
-                    <NavigationMenuItem>
+                        <NavigationMenuItem>
                             <Link href="/" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                     Home
@@ -106,16 +111,18 @@ export function Header() {
                                         Manage hospital systems, register facilities, and track patient services
                                     </ListItem>
                                     <ListItem href="/pages/doctor" title="Doctor">
-                                        Find doctors, manage appointments, and access medical profiles.                                    </ListItem>
+                                        Find doctors, manage appointments, and access medical profiles.
+                                    </ListItem>
                                     <ListItem href="/pages/medicine-distributor" title="Medicine Distributor">
-                                        Oversee medicine distribution, manage stock, and streamline supply chains.                                    </ListItem>
+                                        Oversee medicine distribution, manage stock, and streamline supply chains.
+                                    </ListItem>
                                 </ul>
                             </NavigationMenuContent>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
                             <NavigationMenuTrigger>Services</NavigationMenuTrigger>
                             <NavigationMenuContent>
-                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                                     {components.map((component) => (
                                         <ListItem
                                             key={component.title}
@@ -148,7 +155,6 @@ export function Header() {
 
                     <SignedOut>
                         {/* Show the SignInButton when the user is not signed in */}
-
                         <SignInButton />
                     </SignedOut>
                 </div>

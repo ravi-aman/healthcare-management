@@ -40,7 +40,6 @@ function BloodFilterComponent() {
                     </select>
                 </div>
 
-                {/* Price Range Filter */}
                 <div className="mb-4">
                     <label htmlFor="priceRange" className="block text-sm font-medium text-gray-700 dark:text-gray-200">Price Range</label>
                     <input

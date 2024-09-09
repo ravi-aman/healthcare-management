@@ -9,7 +9,6 @@ export function BedSearchForm() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("Bed search submitted");
-        // Add your search logic here
     };
 
     return (

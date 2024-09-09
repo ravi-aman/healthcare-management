@@ -10,7 +10,7 @@ function BedsHeader() {
             className="flex flex-col justify-between md:flex-row items-center gap-10 w-full min-h-screen bg-cover bg-center relative overflow-hidden"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
-            {/* Darkened background effect */}
+
             <div className="absolute inset-0 bg-black/60"></div>
 
             <div className="relative flex-1 mx-20 p-6 rounded-lg shadow-md text-white">

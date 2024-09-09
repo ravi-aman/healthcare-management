@@ -25,7 +25,6 @@ function FilterComponent() {
                         <option>ICU</option>
                         <option>General Ward</option>
                         <option>Private Room</option>
-                        {/* Add more options as needed */}
                     </select>
                 </div>
 
