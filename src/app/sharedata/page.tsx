@@ -9,7 +9,7 @@ function BloodHeader() {
             className="flex flex-col justify-center items-center w-full min-h-screen bg-cover bg-center relative overflow-hidden"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-black/60"></div>
 
             <div className="relative z-10 w-full max-w-4xl p-6 text-center text-white">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8">

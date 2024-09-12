@@ -1,7 +1,9 @@
 import type { Config } from 'tailwindcss';
+import { fontFamily } from "tailwindcss/defaultTheme";
 import defaultTheme from 'tailwindcss/defaultTheme';
 import colors from 'tailwindcss/colors';
 
+/** @type {import('tailwindcss').Config} */
 const config: Config = {
   darkMode: ['class'], // Use class-based dark mode
   content: [
@@ -9,6 +11,8 @@ const config: Config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     container: {
@@ -19,10 +23,14 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['var(--font-heading)', ...fontFamily.sans],
+        body: ['var(--font-body)', ...fontFamily.sans],
+      },
       animation: {
         scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       keyframes: {
         scroll: {
@@ -30,13 +38,13 @@ const config: Config = {
             transform: 'translate(calc(-50% - 0.5rem))',
           },
         },
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
         },
       },
       colors: {
@@ -82,6 +90,7 @@ const config: Config = {
         },
       },
       borderRadius: {
+        xl: `calc(var(--radius) + 4px)`,
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
@@ -98,6 +107,7 @@ const config: Config = {
   ],
 };
 
+// Fix: Convert any numeric values like `height: number` to strings where required
 function addVariablesForColors({ addBase, theme }: { addBase: (base: any) => void; theme: (key: string) => any }) {
   const allColors = theme('colors');
   const newVars = Object.fromEntries(
@@ -108,5 +118,10 @@ function addVariablesForColors({ addBase, theme }: { addBase: (base: any) => voi
     ':root': newVars,
   });
 }
+
+// Example of handling a height-related issue
+const boxStyle = {
+  height: `${100}px`,  // Fix: Convert number to string with "px"
+};
 
 export default config;

@@ -73,11 +73,11 @@ const components = [
 
 export function Header() {
     return (
-        <div className="flex flex-row justify-between w-screen bg-black relative top-0">
+        <div className="flex flex-row justify-between w-screen bg-black relative top-0 z-100">
             <div className="logo">
                 <Logo />
             </div>
-            <div className="navigationMenu pt-4">
+            <div className="navigationMenu pt-4 z-100">
                 <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationMenuItem>

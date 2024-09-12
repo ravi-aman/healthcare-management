@@ -9,12 +9,13 @@
 
 
 
+// import { HospitalDashboard } from '@/components/component/hospital-dashboard'
 import React from 'react'
 
 function page() {
     return (
         <div>
-
+            {/* <HospitalDashboard /> */}
         </div>
     )
 }
