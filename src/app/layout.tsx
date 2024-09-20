@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 // vercel Analytics
 import { Analytics } from "@vercel/analytics/react"
+// vercel speed Analytics
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import {
   ClerkProvider,
   SignInButton,
@@ -40,6 +42,7 @@ export default function RootLayout({
           <div className="flex min-h-screen bg-white">
             <div>
               <Analytics />
+              <SpeedInsights/>
               <Header />
               {children}
               <Footer />
