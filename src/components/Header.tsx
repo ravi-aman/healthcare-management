@@ -1,12 +1,11 @@
-'use client'
+'use client';
 
-import * as React from "react"
-import Link from "next/link"
+import * as React from "react";
+import Link from "next/link";
 
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/Icons"
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/Icons";
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -15,8 +14,8 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import Logo from "@/components/Logo"
+} from "@/components/ui/navigation-menu";
+import Logo from "@/components/Logo";
 
 const components = [
     {
@@ -65,9 +64,9 @@ const components = [
         description: "Find available treatments in your area with real-time updates.",
     },
     {
-        title: " Find insurance",
-        href: "/availabilitytreatments",
-        description: "Find appropriate insurance for you .",
+        title: "Find Insurance",
+        href: "/insurance",
+        description: "Find appropriate insurance for you.",
     },
 ];
 
@@ -102,13 +101,13 @@ export function Header() {
                                                     Rk
                                                 </div>
                                                 <p className="text-sm leading-tight text-muted-foreground">
-                                                    Comprehensive healthcare management platform offering bed, blood, oxygen, and medicine tracking, along with appointment scheduling and hospital system management
+                                                    Comprehensive healthcare management platform offering bed, blood, oxygen, and medicine tracking, along with appointment scheduling and hospital system management.
                                                 </p>
                                             </a>
                                         </NavigationMenuLink>
                                     </li>
                                     <ListItem href="/pages/hospital" title="Hospital">
-                                        Manage hospital systems, register facilities, and track patient services
+                                        Manage hospital systems, register facilities, and track patient services.
                                     </ListItem>
                                     <ListItem href="/pages/doctor" title="Doctor">
                                         Find doctors, manage appointments, and access medical profiles.
@@ -160,7 +159,7 @@ export function Header() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 const ListItem = React.forwardRef<
@@ -185,6 +184,6 @@ const ListItem = React.forwardRef<
                 </a>
             </NavigationMenuLink>
         </li>
-    )
-})
-ListItem.displayName = "ListItem"
+    );
+});
+ListItem.displayName = "ListItem";

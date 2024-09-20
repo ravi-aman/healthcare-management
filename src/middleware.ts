@@ -1,6 +1,11 @@
+import { NextRequest, NextResponse } from 'next/server';
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+// Clerk's middleware should handle requests first
+export default function middleware(request: NextRequest, event: any) {
+    // Pass the required event parameter to clerkMiddleware
+    return clerkMiddleware()(request, event);
+}
 
 export const config = {
     matcher: [
