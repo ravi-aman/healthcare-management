@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+// vercel Analytics
+import { Analytics } from "@vercel/analytics/react"
 import {
   ClerkProvider,
   SignInButton,
@@ -37,6 +39,7 @@ export default function RootLayout({
         <body>
           <div className="flex min-h-screen bg-white">
             <div>
+              <Analytics />
               <Header />
               {children}
               <Footer />
