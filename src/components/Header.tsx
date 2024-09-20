@@ -145,7 +145,7 @@ export function Header() {
                 </NavigationMenu>
             </div>
             <div className="profile">
-                <div className="flex items-center justify-between px-10 py-5 w-100">
+                <div className="flex items-center justify-between px-10 py-5 w-100 text-white">
                     {/* Render different components based on sign-in status */}
                     <SignedIn>
                         {/* Display the user's profile or menu through UserButton */}

@@ -12,7 +12,7 @@ export function Footer() {
 
                 <Boxes />
 
-                <div className="relative z-30 w-full max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between">
+                <div className="relative z-30 w-full max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row justify-between md:my-100">
                     <div>
                         <TeamMember/>
                         <div className="flex flex-col md:flex-row md:space-x-8 mb-6 md:mb-0">
