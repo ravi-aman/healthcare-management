@@ -6,12 +6,20 @@ import {
   SignInButton,
   SignedIn,
   SignedOut,
-  UserButton
-} from '@clerk/nextjs'
+  UserButton,
+} from "@clerk/nextjs";
 
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer"
+import { Footer } from "@/components/Footer";
+
 const inter = Inter({ subsets: ["latin"] });
+
+// Ensure the Clerk publishable key is available from environment variables
+const clerkKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
+if (!clerkKey) {
+  throw new Error("Missing Clerk publishableKey. Ensure the environment variable is set.");
+}
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,11 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={clerkKey}>
       <html lang="en">
         <body>
           <div className="flex min-h-screen bg-white">
-            <div >
+            <div>
               <Header />
               {children}
               <Footer />
@@ -37,6 +45,5 @@ export default function RootLayout({
         </body>
       </html>
     </ClerkProvider>
-
   );
 }
