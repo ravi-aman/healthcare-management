@@ -39,12 +39,12 @@ const config: Config = {
           },
         },
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0px" },  // Fixed: Convert number 0 to string "0px"
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0px" },  // Fixed: Convert number 0 to string "0px"
         },
       },
       colors: {
@@ -107,7 +107,7 @@ const config: Config = {
   ],
 };
 
-// Fix: Convert any numeric values like `height: number` to strings where required
+// Function to add CSS variables for colors
 function addVariablesForColors({ addBase, theme }: { addBase: (base: any) => void; theme: (key: string) => any }) {
   const allColors = theme('colors');
   const newVars = Object.fromEntries(
