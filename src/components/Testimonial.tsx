@@ -5,8 +5,8 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export function Testimonial() {
     return (
-        <div className="flex flex-col  justify-center item center">
-            <div className="h-[rem] rounded-md flex flex-col antialiased   dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+        <div className="flex flex-col justify-center items-center p-4 md:p-8">
+            <div className="md:h-[rem] rounded-md flex flex-col antialiased dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden w-full max-w-4xl">
                 <InfiniteMovingCards
                     items={testimonials}
                     direction="right"
