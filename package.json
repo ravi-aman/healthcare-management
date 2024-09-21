@@ -60,6 +60,7 @@
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.1",
     "vercel": "^32.3.0",
+    "web3": "^4.13.0",
     "yjs": "^13.6.18"
   },
   "devDependencies": {
