@@ -15,7 +15,7 @@ import React from 'react'
 function page() {
     return (
         <div>
-            {/* <HospitalDashboard /> */}
+            <h1>hiiiii</h1>
         </div>
     )
 }
