@@ -1,17 +1,8 @@
-import ImagesSliderDemo from "@/components/Hero";
-import Service from "@/components/Service";
-import Testimonial from "@/components/Testimonial";
-import CallToAction from "@/components/CallToAction"
-import Features from "@/components/Features"
-export default function Home() {
-  return (
-    <main className="flex  flex-col justify-center items-center ">
+import { redirect } from "next/navigation";
 
-      <ImagesSliderDemo />
-      <Service />
-      <Features/>
-      <CallToAction/>
-      <Testimonial/>
-    </main>
-  );
+export default function Home() {
+  // Redirect to /user when the root URL is accessed
+  redirect("/user");
+
+  return null; // No need to render anything since the redirect will occur
 }

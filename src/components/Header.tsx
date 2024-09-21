@@ -80,7 +80,7 @@ export function Header() {
                 <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationMenuItem>
-                            <Link href="/" legacyBehavior passHref>
+                            <Link href="/user/" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                     Home
                                 </NavigationMenuLink>
@@ -94,7 +94,7 @@ export function Header() {
                                         <NavigationMenuLink asChild>
                                             <a
                                                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                                href="/"
+                                                href="/user/"
                                             >
                                                 <Icons.logo className="h-6 w-6" />
                                                 <div className="mb-2 mt-4 text-lg font-medium">
@@ -106,13 +106,13 @@ export function Header() {
                                             </a>
                                         </NavigationMenuLink>
                                     </li>
-                                    <ListItem href="/pages/hospital" title="Hospital">
+                                    <ListItem href="/hospital/" title="Hospital">
                                         Manage hospital systems, register facilities, and track patient services.
                                     </ListItem>
-                                    <ListItem href="/pages/doctor" title="Doctor">
+                                    <ListItem href="/doctor/" title="Doctor">
                                         Find doctors, manage appointments, and access medical profiles.
                                     </ListItem>
-                                    <ListItem href="/pages/medicine-distributor" title="Medicine Distributor">
+                                    <ListItem href="/medicine-distributor/" title="Medicine Distributor">
                                         Oversee medicine distribution, manage stock, and streamline supply chains.
                                     </ListItem>
                                 </ul>
