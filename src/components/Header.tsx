@@ -72,13 +72,13 @@ const components = [
 
 export function Header() {
     return (
-        <div className="flex flex-row justify-between w-screen bg-black relative top-0 z-100">
-            <div className="logo">
+        <div className="flex flex-col md:flex-row justify-between w-full bg-black relative top-0 z-100">
+            <div className="logo flex justify-center md:justify-start w-full md:w-auto p-4">
                 <Logo />
             </div>
-            <div className="navigationMenu pt-4 z-100">
+            <div className="navigationMenu w-full md:w-auto pt-4 md:pt-0 z-100 flex justify-center md:justify-start">
                 <NavigationMenu>
-                    <NavigationMenuList>
+                    <NavigationMenuList className="flex flex-col md:flex-row">
                         <NavigationMenuItem>
                             <Link href="/user/" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -145,21 +145,21 @@ export function Header() {
                 </NavigationMenu>
             </div>
             <div className="profile">
-                <div className="flex items-center justify-between px-10 py-5 w-100 text-white">
-                    {/* Render different components based on sign-in status */}
-                    <SignedIn>
-                        {/* Display the user's profile or menu through UserButton */}
-                        <UserButton />
-                    </SignedIn>
+                 <div className="flex items-center justify-between px-10 py-5 w-100 text-white mt-10 md:ml-15 md:pt-0 z-100 md:justify-start">
+                     {/* Render different components based on sign-in status */}
+                     <SignedIn>
+                         {/* Display the user's profile or menu through UserButton */}
+                         <UserButton />
+                     </SignedIn>
 
-                    <SignedOut>
-                        {/* Show the SignInButton when the user is not signed in */}
-                        <SignInButton />
-                    </SignedOut>
-                </div>
-            </div>
-        </div>
-    );
+                     <SignedOut>
+                         {/* Show the SignInButton when the user is not signed in */}
+                         <SignInButton />
+                     </SignedOut>
+                 </div>
+             </div>
+         </div>
+     );
 }
 
 const ListItem = React.forwardRef<
