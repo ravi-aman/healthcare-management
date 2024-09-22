@@ -17,9 +17,9 @@ import {
     Tooltip,
     Legend,
     ArcElement,
-} from 'chart.js';
+} from "chart.js";
 
-// Register the necessary components
+// Register the necessary components for charts
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement);
 
 const PatientRecords = () => {
@@ -29,37 +29,12 @@ const PatientRecords = () => {
         record.fullName.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    // Sample data for charts
-    const bloodPressureData = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May"],
-        datasets: [
-            {
-                label: "Blood Pressure",
-                data: [120, 125, 118, 130, 122],
-                fill: false,
-                backgroundColor: "rgba(75, 192, 192, 0.2)",
-                borderColor: "rgba(75, 192, 192, 1)",
-                borderWidth: 1,
-            },
-        ],
-    };
-
-    const medicationAdherenceData = {
-        labels: ["Adhered", "Not Adhered"],
-        datasets: [
-            {
-                data: [80, 20],
-                backgroundColor: ["#36A2EB", "#FF6384"],
-                hoverBackgroundColor: ["#36A2EB", "#FF6384"],
-            },
-        ],
-    };
-
+    // Updated columns definition for table if needed later
     const columns = React.useMemo(
         () => [
-            { Header: "Medication", accessor: "medication" },
-            { Header: "Dosage", accessor: "dosage" },
-            { Header: "Frequency", accessor: "frequency" },
+            { Header: "Medication", accessor: "medication" as const },
+            { Header: "Dosage", accessor: "dosage" as const },
+            { Header: "Frequency", accessor: "frequency" as const },
         ],
         []
     );
@@ -93,114 +68,145 @@ const PatientRecords = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                    <h2 className="text-xl font-bold mb-2">Blood Pressure Over Time</h2>
-                    <Line data={bloodPressureData} height={100} options={{ responsive: true }} />
-                </div>
-
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                    <h2 className="text-xl font-bold mb-2">Medication Adherence</h2>
-                    <Pie data={medicationAdherenceData} height={100} options={{ responsive: true }} />
-                </div>
-            </div>
-
             <div className="grid grid-cols-1 gap-6">
-                {filteredRecords.map(record => (
-                    <div key={record.id} className="border border-gray-300 rounded-lg bg-white shadow p-4">
-                        <h2 className="text-xl font-bold text-blue-600">{record.fullName}</h2>
-                        <p><strong>Date of Birth:</strong> {record.dateOfBirth}</p>
-                        <p><strong>Gender:</strong> {record.gender}</p>
-                        <p><strong>Address:</strong> {record.address}</p>
-                        <p><strong>Phone:</strong> {record.phoneNumber}</p>
-                        <p><strong>Email:</strong> {record.email}</p>
-                        <p><strong>Emergency Contact:</strong> {record.emergencyContact}</p>
+                {filteredRecords.map(record => {
+                    // Prepare data for blood pressure chart specific to the patient
+                    const bloodPressureData = {
+                        labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+                        datasets: [
+                            {
+                                label: "Blood Pressure",
+                                data: record.vitalSigns.bloodPressure, // Use the patient's specific blood pressure data
+                                fill: false,
+                                backgroundColor: "rgba(75, 192, 192, 0.2)",
+                                borderColor: "rgba(75, 192, 192, 1)",
+                                borderWidth: 1,
+                            },
+                        ],
+                    };
 
-                        <h3 className="font-semibold mt-4 text-lg">Medical History</h3>
-                        <ul className="list-disc list-inside">
-                            {record.medicalHistory.map((history, index) => (
-                                <li key={index} className="text-gray-700">{history}</li>
-                            ))}
-                        </ul>
+                    // Prepare data for medication adherence specific to the patient
+                    const medicationAdherenceData = {
+                        labels: ["Adhered", "Not Adhered"],
+                        datasets: [
+                            {
+                                data: record.medicationAdherenceData, // Use the patient's specific adherence data
+                                backgroundColor: ["#36A2EB", "#FF6384"],
+                                hoverBackgroundColor: ["#36A2EB", "#FF6384"],
+                            },
+                        ],
+                    };
 
-                        <h3 className="font-semibold mt-4 text-lg">Allergies</h3>
-                        <ul className="list-disc list-inside">
-                            {record.allergies.map((allergy, index) => (
-                                <li key={index} className="text-gray-700">{allergy}</li>
-                            ))}
-                        </ul>
+                    return (
+                        <div key={record.id} className="border border-gray-300 rounded-lg bg-white shadow p-4">
+                            <h2 className="text-xl font-bold text-blue-600">{record.fullName}</h2>
+                            <p><strong>Date of Birth:</strong> {record.dateOfBirth}</p>
+                            <p><strong>Gender:</strong> {record.gender}</p>
+                            <p><strong>Address:</strong> {record.address}</p>
+                            <p><strong>Phone:</strong> {record.phoneNumber}</p>
+                            <p><strong>Email:</strong> {record.email}</p>
+                            <p><strong>Emergency Contact:</strong> {record.emergencyContact}</p>
 
-                        <h3 className="font-semibold mt-4 text-lg">Current Medications</h3>
-                        <ul className="list-disc list-inside">
-                            {record.currentMedications.map((medication, index) => (
-                                <li key={index} className="text-gray-700">{medication}</li>
-                            ))}
-                        </ul>
+                            <h3 className="font-semibold mt-4 text-lg">Medical History</h3>
+                            <ul className="list-disc list-inside">
+                                {record.medicalHistory.map((history, index) => (
+                                    <li key={index} className="text-gray-700">{history}</li>
+                                ))}
+                            </ul>
 
-                        <h3 className="font-semibold mt-4 text-lg">Vital Signs</h3>
-                        <p><strong>Height:</strong> {record.vitalSigns.height}</p>
-                        <p><strong>Weight:</strong> {record.vitalSigns.weight}</p>
-                        <p><strong>Blood Pressure:</strong> {record.vitalSigns.bloodPressure}</p>
-                        <p><strong>Heart Rate:</strong> {record.vitalSigns.heartRate}</p>
-                        <p><strong>Respiratory Rate:</strong> {record.vitalSigns.respiratoryRate}</p>
-                        <p><strong>Temperature:</strong> {record.vitalSigns.temperature}</p>
+                            <h3 className="font-semibold mt-4 text-lg">Allergies</h3>
+                            <ul className="list-disc list-inside">
+                                {record.allergies.map((allergy, index) => (
+                                    <li key={index} className="text-gray-700">{allergy}</li>
+                                ))}
+                            </ul>
 
-                        <h3 className="font-semibold mt-4 text-lg">Physical Examination</h3>
-                        <p>{record.physicalExamination}</p>
+                            <h3 className="font-semibold mt-4 text-lg">Current Medications</h3>
+                            <ul className="list-disc list-inside">
+                                {record.currentMedications.map((medication, index) => (
+                                    <li key={index} className="text-gray-700">{medication}</li>
+                                ))}
+                            </ul>
 
-                        <h3 className="font-semibold mt-4 text-lg">Diagnostic Tests</h3>
-                        <ul className="list-disc list-inside">
-                            {record.diagnosticTests.map((test, index) => (
-                                <li key={index} className="text-gray-700">{test}</li>
-                            ))}
-                        </ul>
+                            <h3 className="font-semibold mt-4 text-lg">Vital Signs</h3>
+                            <p><strong>Height:</strong> {record.vitalSigns.height}</p>
+                            <p><strong>Weight:</strong> {record.vitalSigns.weight}</p>
+                            <p><strong>Blood Pressure:</strong> {record.vitalSigns.bloodPressure}</p>
+                            <p><strong>Heart Rate:</strong> {record.vitalSigns.heartRate}</p>
+                            <p><strong>Respiratory Rate:</strong> {record.vitalSigns.respiratoryRate}</p>
+                            <p><strong>Temperature:</strong> {record.vitalSigns.temperature}</p>
 
-                        <h3 className="font-semibold mt-4 text-lg">Treatment Plans</h3>
-                        <ul className="list-disc list-inside">
-                            {record.treatmentPlans.map((plan, index) => (
-                                <li key={index} className="text-gray-700">{plan}</li>
-                            ))}
-                        </ul>
+                            {/* Charts Section */}
+                            <div className="mt-6">
+                                <h3 className="font-semibold text-lg">Blood Pressure Over Time</h3>
+                                <div className="bg-white p-4 rounded-lg shadow-md mb-4">
+                                    <Line data={bloodPressureData} height={100} options={{ responsive: true }} />
+                                </div>
 
-                        <h3 className="font-semibold mt-4 text-lg">Progress Notes</h3>
-                        <ul className="list-disc list-inside">
-                            {record.progressNotes.map((note, index) => (
-                                <li key={index} className="text-gray-700">{note}</li>
-                            ))}
-                        </ul>
+                                <h3 className="font-semibold text-lg">Medication Adherence</h3>
+                                <div className="bg-white p-4 rounded-lg shadow-md">
+                                    <Pie data={medicationAdherenceData} height={100} options={{ responsive: true }} />
+                                </div>
+                            </div>
 
-                        <h3 className="font-semibold mt-4 text-lg">Consent Forms</h3>
-                        <ul className="list-disc list-inside">
-                            {record.consentForms.map((form, index) => (
-                                <li key={index} className="text-gray-700">{form}</li>
-                            ))}
-                        </ul>
+                            <h3 className="font-semibold mt-4 text-lg">Physical Examination</h3>
+                            <p>{record.physicalExamination}</p>
 
-                        <h3 className="font-semibold mt-4 text-lg">Surgical History</h3>
-                        <ul className="list-disc list-inside">
-                            {record.surgicalHistory.map((surgery, index) => (
-                                <li key={index} className="text-gray-700">{surgery}</li>
-                            ))}
-                        </ul>
+                            <h3 className="font-semibold mt-4 text-lg">Diagnostic Tests</h3>
+                            <ul className="list-disc list-inside">
+                                {record.diagnosticTests.map((test, index) => (
+                                    <li key={index} className="text-gray-700">{test}</li>
+                                ))}
+                            </ul>
 
-                        <h3 className="font-semibold mt-4 text-lg">Social History</h3>
-                        <p>{record.socialHistory}</p>
+                            <h3 className="font-semibold mt-4 text-lg">Treatment Plans</h3>
+                            <ul className="list-disc list-inside">
+                                {record.treatmentPlans.map((plan, index) => (
+                                    <li key={index} className="text-gray-700">{plan}</li>
+                                ))}
+                            </ul>
 
-                        <h3 className="font-semibold mt-4 text-lg">Mental Health History</h3>
-                        <ul className="list-disc list-inside">
-                            {record.mentalHealthHistory.map((mhHistory, index) => (
-                                <li key={index} className="text-gray-700">{mhHistory}</li>
-                            ))}
-                        </ul>
+                            <h3 className="font-semibold mt-4 text-lg">Progress Notes</h3>
+                            <ul className="list-disc list-inside">
+                                {record.progressNotes.map((note, index) => (
+                                    <li key={index} className="text-gray-700">{note}</li>
+                                ))}
+                            </ul>
 
-                        <h3 className="font-semibold mt-4 text-lg">Reproductive Health</h3>
-                        <p>{record.reproductiveHealth}</p>
+                            <h3 className="font-semibold mt-4 text-lg">Consent Forms</h3>
+                            <ul className="list-disc list-inside">
+                                {record.consentForms.map((form, index) => (
+                                    <li key={index} className="text-gray-700">{form}</li>
+                                ))}
+                            </ul>
 
-                        <h3 className="font-semibold mt-4 text-lg">Insurance Information</h3>
-                        <p><strong>Provider:</strong> {record.insuranceInfo.provider}</p>
-                        <p><strong>Policy Number:</strong> {record.insuranceInfo.policyNumber}</p>
-                    </div>
-                ))}
+                            <h3 className="font-semibold mt-4 text-lg">Surgical History</h3>
+                            <ul className="list-disc list-inside">
+                                {record.surgicalHistory.map((surgery, index) => (
+                                    <li key={index} className="text-gray-700">{surgery}</li>
+                                ))}
+                            </ul>
+
+                            <h3 className="font-semibold mt-4 text-lg">Social History</h3>
+                            <p>{record.socialHistory}</p>
+
+                            <h3 className="font-semibold mt-4 text-lg">Mental Health History</h3>
+                            <ul className="list-disc list-inside">
+                                {record.mentalHealthHistory.map((mhHistory, index) => (
+                                    <li key={index} className="text-gray-700">{mhHistory}</li>
+                                ))}
+                            </ul>
+
+                            <h3 className="font-semibold mt-4 text-lg">Reproductive Health</h3>
+                            <p>{record.reproductiveHealth}</p>
+
+                            <h3 className="font-semibold mt-4 text-lg">Insurance Information</h3>
+                            <p><strong>Provider:</strong> {record.insuranceInfo.provider}</p>
+                            <p><strong>Policy Number:</strong> {record.insuranceInfo.policyNumber}</p>
+                            <p><strong>Group Number:</strong> {record.insuranceInfo.groupNumber}</p>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
