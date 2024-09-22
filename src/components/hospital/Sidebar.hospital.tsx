@@ -38,7 +38,7 @@ const HospitalSidebar = ({ isOpen, onPageChange }: SidebarProps) => {
                     </motion.button>
                     {isDashboardOpen && isOpen && (
                         <div className="pl-6 space-y-1">
-                            <Link href="#" passHref>
+                            <Link href="/hospital/register" passHref>
                                 <motion.button
                                     whileHover={{ scale: 1.05, backgroundColor: "#4b5563" }} // Change background on hover
                                     className="flex items-center p-2 w-full hover:bg-gray-600 rounded-md transition-colors"
