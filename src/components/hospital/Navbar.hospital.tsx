@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaBell } from "react-icons/fa";
+import gsap from "gsap";
 
 interface Notification {
     title: string;
@@ -34,13 +35,23 @@ interface NavbarProps {
 
 const HospitalNavbar = ({ onToggleSidebar, activePage }: NavbarProps) => {
     const [showNotifications, setShowNotifications] = useState(false);
+    const notificationRef = useRef<HTMLDivElement | null>(null);
 
     const toggleNotifications = () => {
         setShowNotifications((prev) => !prev);
     };
 
+    useEffect(() => {
+        if (showNotifications) {
+            gsap.fromTo(notificationRef.current, 
+                { opacity: 0, y: -10 }, 
+                { opacity: 1, y: 0, duration: 0.3 }
+            );
+        }
+    }, [showNotifications]);
+
     return (
-        <header className="flex justify-between items-center bg-gray-800 text-white p-4 rounded-b-lg">
+        <header className="flex justify-between items-center bg-gray-800 text-white p-4 b-lg">
             <div className="flex items-center space-x-4">
                 <button onClick={onToggleSidebar} className="hover:text-gray-400">
                     <svg
@@ -65,7 +76,7 @@ const HospitalNavbar = ({ onToggleSidebar, activePage }: NavbarProps) => {
                     </button>
 
                     {showNotifications && (
-                        <div className="absolute right-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg z-10">
+                        <div ref={notificationRef} className="absolute right-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg z-10">
                             <div className="max-h-60 overflow-y-auto">
                                 {notificationsData.length > 0 ? (
                                     notificationsData.map((notification, index) => (

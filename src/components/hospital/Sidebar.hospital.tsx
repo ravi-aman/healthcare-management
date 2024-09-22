@@ -14,7 +14,7 @@ const HospitalSidebar = ({ isOpen, onPageChange }: SidebarProps) => {
     };
 
     return (
-        <aside className="flex flex-col items-center justify-between h-full py-4 overflow-y-auto scrollbar">
+        <aside className={`fixed top-0 left-0 h-full py-4 overflow-y-auto bg-gray-800 text-white ${isOpen ? "w-64" : "w-16"} transition-width`}>
             <div className="flex flex-col items-center w-full">
                 <div className={`p-4 ${isOpen ? "text-2xl font-bold" : "hidden"}`}>
                     Logo
@@ -51,7 +51,6 @@ const HospitalSidebar = ({ isOpen, onPageChange }: SidebarProps) => {
                                 <FaPills size={16} />
                                 <span className="ml-2">Add Medicines</span>
                             </button>
-                            {/* Add more buttons as needed */}
                         </div>
                     )}
 

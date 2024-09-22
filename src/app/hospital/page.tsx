@@ -10,13 +10,13 @@
 
 
 // import { HospitalDashboard } from '@/components/component/hospital-dashboard'
+import PatientRecords from '@/components/hospital/PatientRecords'
 import React from 'react'
 
 function page() {
     return (
         <>
-        hee
-        </>
+            <PatientRecords/>        </>
     )
 }
 
