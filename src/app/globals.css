@@ -66,7 +66,44 @@
     @apply bg-background text-foreground;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
+
+
+  /* Custom scrollbar for the sidebar */
+  .sidebar {
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: #4a5568 #2d3748;
+    /* Thumb Color and Track Color */
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the scrollbar */
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: #2d3748;
+    /* Track color */
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    /* Thumb color */
+    border-radius: 10px;
+    /* Round the corners */
+  }
+
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+    /* Thumb color on hover */
+  }
+
 }
