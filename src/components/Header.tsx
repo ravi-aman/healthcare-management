@@ -20,52 +20,52 @@ import Logo from "@/components/Logo";
 const components = [
     {
         title: "Check Blood",
-        href: "/blood",
+        href: "/user/blood",
         description: "Quickly locate available blood supplies and manage your inventory with ease.",
     },
     {
         title: "Check Oxygen Cylinders",
-        href: "oxygen",
+        href: "#",
         description: "Find and track available oxygen cylinders to ensure timely access.",
     },
     {
         title: "Book Appointment",
-        href: "/appointment",
+        href: "#",
         description: "Schedule appointments at hospitals or clinics effortlessly.",
     },
     {
         title: "Check Medicine",
-        href: "/medicine",
+        href: "#",
         description: "Search for and manage medicine availability and inventory efficiently.",
     },
     {
         title: "Check Beds",
-        href: "/beds",
+        href: "/user/beds",
         description: "Find available hospital beds in your area with real-time updates.",
     },
     {
         title: "Share Your Data",
-        href: "sharedata",
+        href: "#",
         description: "Share your data for research purposes and get exciting rewards or tokens.",
     },
     {
         title: "Ask for Donation",
-        href: "/askdonation",
+        href: "#",
         description: "Get donations for your needs.",
     },
     {
         title: "Test Availability",
-        href: "/testavailability",
+        href: "#",
         description: "Find available tests in your area with real-time updates.",
     },
     {
         title: "Availability of Treatments",
-        href: "/availabilitytreatments",
+        href: "#",
         description: "Find available treatments in your area with real-time updates.",
     },
     {
         title: "Find Insurance",
-        href: "/insurance",
+        href: "#",
         description: "Find appropriate insurance for you.",
     },
 ];
@@ -109,10 +109,10 @@ export function Header() {
                                     <ListItem href="/hospital/" title="Hospital">
                                         Manage hospital systems, register facilities, and track patient services.
                                     </ListItem>
-                                    <ListItem href="/doctor/" title="Doctor">
+                                    <ListItem href="#" title="Doctor">
                                         Find doctors, manage appointments, and access medical profiles.
                                     </ListItem>
-                                    <ListItem href="/medicine-distributor/" title="Medicine Distributor">
+                                    <ListItem href="#" title="Medicine Distributor">
                                         Oversee medicine distribution, manage stock, and streamline supply chains.
                                     </ListItem>
                                 </ul>
@@ -135,7 +135,7 @@ export function Header() {
                             </NavigationMenuContent>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <Link href="/docs" legacyBehavior passHref>
+                            <Link href="#z" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                     Contact us
                                 </NavigationMenuLink>
@@ -145,21 +145,21 @@ export function Header() {
                 </NavigationMenu>
             </div>
             <div className="profile">
-                 <div className="flex items-center justify-between px-10 py-5 w-100 text-white mt-10 md:ml-15 md:pt-0 z-100 md:justify-start">
-                     {/* Render different components based on sign-in status */}
-                     <SignedIn>
-                         {/* Display the user's profile or menu through UserButton */}
-                         <UserButton />
-                     </SignedIn>
+                <div className="flex items-center justify-between px-10 py-5 w-100 text-white mt-10 md:ml-15 md:pt-0 z-100 md:justify-start">
+                    {/* Render different components based on sign-in status */}
+                    <SignedIn>
+                        {/* Display the user's profile or menu through UserButton */}
+                        <UserButton />
+                    </SignedIn>
 
-                     <SignedOut>
-                         {/* Show the SignInButton when the user is not signed in */}
-                         <SignInButton />
-                     </SignedOut>
-                 </div>
-             </div>
-         </div>
-     );
+                    <SignedOut>
+                        {/* Show the SignInButton when the user is not signed in */}
+                        <SignInButton />
+                    </SignedOut>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 const ListItem = React.forwardRef<
