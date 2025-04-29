@@ -1,7 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 
 const NEXT_PUBLIC_RPC_URL = "https://rpc.ankr.com/eth_holesky";
-const NEXT_PUBLIC_PRIVATE_KEY = "df57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e";
+const NEXT_PUBLIC_PRIVATE_KEY = "5662de70d90e08a8e7913af374ee9161b7bedd42a436e72a5218c7d900cf6f1b";
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
