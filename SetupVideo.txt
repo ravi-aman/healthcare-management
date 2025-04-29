@@ -1,9 +1,0 @@
-
-HARDHAT LOCAL HOST DEPLOYMENT
-
-Video: https://youtu.be/kwNPIZYzQnw?si=O6JMQ6OZuhZ9QSJ7
-
-
-TEST NETWORK DEPLOYMENT 
-
-Video: https://youtu.be/jykullMxxi0?si=a3tGHor3q5wf1j4b
